@@ -1,11 +1,11 @@
-import PrintColumn from "./PrintColumn";
+import PrintCell from "./PrintCell";
 
 export default function PrintItem({ data }) {
   return data.map((ele, ind) => {
     return (
       <tbody>
         <tr key={ind}>
-          <PrintColumn ele={ele} />
+          <PrintCell ele={ele} />
         </tr>
       </tbody>
     );
