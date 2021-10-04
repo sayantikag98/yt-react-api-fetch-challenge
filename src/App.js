@@ -11,7 +11,7 @@ export default function App() {
     try {
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error("Data not fetched");
-      const fetchData = await response.json();
+      const fetchData = await response.json(); // await needed here
       setData(fetchData);
     } catch (err) {
       console.log(err.message);
@@ -21,6 +21,12 @@ export default function App() {
   const PrintList = () => {
     return data.map((ele, ind) => <li key={ind + 1}>{JSON.stringify(ele)}</li>);
   };
+
+  /* 
+  As because data is an array of objects so ele is an object and that is 
+  why direct use of object as React child is not allowed and here 
+  JSON.stringify(ele) required.
+  */
 
   return (
     <>
