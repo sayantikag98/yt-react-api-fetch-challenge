@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Project Animation GIF
 
-! [Project animation] (https://github.com/sayantikag98/yt-react-api-fetch-challenge/blob/main/animation/Project_Animation.gif)
+![Project-animation] (https://github.com/sayantikag98/yt-react-api-fetch-challenge/blob/main/animation/Project_Animation.gif)
 
 ## Available Scripts
 
