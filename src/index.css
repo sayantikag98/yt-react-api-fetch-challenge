@@ -23,6 +23,15 @@ code {
   height: 30px;
 }
 
+table {
+  width: 100%;
+  font-size: 13px;
+}
+
+.table-column {
+  border: 1px solid black;
+}
+
 #btn-item {
   border: 1px solid;
   outline: none;
@@ -35,12 +44,4 @@ code {
   background-color: gray;
   color: white;
   border: 1px solid white;
-}
-
-#ul-item {
-  margin: 30px;
-}
-
-#ul-item > li {
-  margin: 10px;
 }

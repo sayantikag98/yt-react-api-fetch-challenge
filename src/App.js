@@ -1,11 +1,10 @@
 import Button from "./Components/Button";
+import PrintItem from "./Components/PrintItem";
 import { useState } from "react";
 
 export default function App() {
   const [data, setData] = useState([]);
-  const USERS_URL = "https://jsonplaceholder.typicode.com/users",
-    POSTS_URL = "https://jsonplaceholder.typicode.com/posts",
-    COMMENTS_URL = "https://jsonplaceholder.typicode.com/comments";
+  const URL = "https://jsonplaceholder.typicode.com/";
 
   const HandlerOnClick = async (API_URL) => {
     try {
@@ -16,10 +15,6 @@ export default function App() {
     } catch (err) {
       console.log(err.message);
     }
-  };
-
-  const PrintList = () => {
-    return data.map((ele, ind) => <li key={ind + 1}>{JSON.stringify(ele)}</li>);
   };
 
   /* 
@@ -33,24 +28,24 @@ export default function App() {
       <section className="App">
         <Button
           HandlerOnClick={HandlerOnClick}
-          API_URL={USERS_URL}
+          API_URL={`${URL}users`}
           text="Users"
         />
         <Button
           HandlerOnClick={HandlerOnClick}
-          API_URL={POSTS_URL}
+          API_URL={`${URL}posts`}
           text="Posts"
         />
         <Button
           HandlerOnClick={HandlerOnClick}
-          API_URL={COMMENTS_URL}
+          API_URL={`${URL}comments`}
           text="Comments"
         />
       </section>
 
-      <ul id="ul-item">
-        <PrintList />
-      </ul>
+      <table id="table-item">
+        <PrintItem data={data} />
+      </table>
     </>
   );
 }
