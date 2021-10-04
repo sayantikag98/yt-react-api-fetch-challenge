@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Project Animation GIF
+
+![Project animation] (https://github.com/sayantikag98/yt-react-api-fetch-challenge/blob/main/animation/Project_Animation.gif)
+
 ## Available Scripts
 
 In the project directory, you can run:
