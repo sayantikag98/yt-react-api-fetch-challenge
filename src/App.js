@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import Button from "./Components/Button";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [data, setData] = useState([]);
+  const USERS_URL = "https://jsonplaceholder.typicode.com/users",
+    POSTS_URL = "https://jsonplaceholder.typicode.com/posts",
+    COMMENTS_URL = "https://jsonplaceholder.typicode.com/comments";
+
+  const HandlerOnClick = async (API_URL) => {
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error("Data not fetched");
+      const fetchData = await response.json();
+      setData(fetchData);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const PrintList = () => {
+    return data.map((ele, ind) => <li key={ind + 1}>{JSON.stringify(ele)}</li>);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <section className="App">
+        <Button
+          HandlerOnClick={HandlerOnClick}
+          API_URL={USERS_URL}
+          text="Users"
+        />
+        <Button
+          HandlerOnClick={HandlerOnClick}
+          API_URL={POSTS_URL}
+          text="Posts"
+        />
+        <Button
+          HandlerOnClick={HandlerOnClick}
+          API_URL={COMMENTS_URL}
+          text="Comments"
+        />
+      </section>
+
+      <ul id="ul-item">
+        <PrintList />
+      </ul>
+    </>
   );
 }
-
-export default App;
