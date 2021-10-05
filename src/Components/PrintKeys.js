@@ -1,9 +1,13 @@
 const PrintKeys = ({ text, ele }) => {
-  const arr = Object.keys(ele);
-  return arr.map((e, ind) => (
+  const arr = Object.values(ele);
+  return arr.map((value, ind) => (
     <td className={text} key={ind}>
       {/*for objects to put in as a react child use JSON.stringify()*/}
-      {JSON.stringify(ele[e])}
+      {typeof value === "object" ? (
+        <PrintKeys text={text} ele={value} /> // RECURSION
+      ) : (
+        value
+      )}
     </td>
   ));
 };
